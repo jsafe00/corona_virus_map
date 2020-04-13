@@ -10,6 +10,7 @@
     "gatsby-plugin-resolve-src": "^2.0.0",
     "gatsby-plugin-sass": "^2.1.30",
     "gatsby-source-filesystem": "^2.1.55",
+    "gh-pages": "^2.2.0",
     "leaflet": "^1.6.0",
     "node-sass": "^4.13.1",
     "path": "^0.12.7",
@@ -51,7 +52,8 @@
     "lint": "eslint -c ./config/eslint.config.js . --ext .js",
     "start": "yarn develop",
     "serve": "gatsby serve",
-    "test": "jest --config ./config/jest.config.js"
+    "test": "jest --config ./config/jest.config.js",
+    "deploy:github": "npm run build && node ./deploy-github"
   },
   "husky": {
     "hooks": {
