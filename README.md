@@ -1,3 +1,3 @@
 Sample corona virus map.
-> yarn install
+> yarn install <br>
 > yarn develop
