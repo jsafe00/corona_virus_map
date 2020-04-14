@@ -4,7 +4,6 @@ import L from 'leaflet';
 import axios from 'axios';
 
 import Layout from 'components/Layout';
-import Container from 'components/Container';
 import Map from 'components/Map';
 
 const LOCATION = {

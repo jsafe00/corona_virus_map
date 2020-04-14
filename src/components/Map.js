@@ -4,6 +4,7 @@ import { Map as BaseMap, TileLayer, ZoomControl } from 'react-leaflet';
 
 import { useConfigureLeaflet, useMapServices, useRefEffect } from 'hooks';
 import { isDomAvailable } from 'lib/util';
+import Search from "./Search";
 
 const DEFAULT_MAP_SERVICE = 'OpenStreetMap';
 
@@ -50,6 +51,7 @@ const Map = ( props ) => {
         { children }
         { basemap && <TileLayer {...basemap} /> }
         <ZoomControl position="bottomright" />
+        <Search />
       </BaseMap>
     </div>
   );
