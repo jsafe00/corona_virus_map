@@ -3,6 +3,9 @@ import Helmet from 'react-helmet';
 import L from 'leaflet';
 import axios from 'axios';
 
+import { useTracker } from 'hooks';
+import { commafy, friendlyDate } from 'lib/util';
+
 import Layout from 'components/Layout';
 import Map from 'components/Map';
 
@@ -15,11 +18,65 @@ const DEFAULT_ZOOM = 2;
 
 const IndexPage = () => {
 
-  /**
-   * mapEffect
-   * @description Fires a callback once the page renders
-   * @example Here this is and example of being used to zoom in and set a popup on load
-   */
+  const { data: stats = {} } = useTracker({
+    api: 'all'
+  });
+
+  const { data: countries = [] } = useTracker({
+    api: 'countries'
+  });
+
+  const dashboardStats = [
+    {
+      primary: {
+        label: 'Total Cases',
+        value: stats ? commafy(stats?.cases) : '-'
+      },
+      secondary: {
+        label: 'Per 1 Million',
+        value: stats ? commafy(stats?.casesPerOneMillion) : '-'
+      }
+    },
+    {
+      primary: {
+        label: 'Total Deaths',
+        value: stats ? commafy(stats?.deaths) : '-'
+      },
+      secondary: {
+        label: 'Per 1 Million',
+        value: stats ? commafy(stats?.deathsPerOneMillion) : '-'
+      }
+    },
+    {
+      primary: {
+        label: 'Total Tests',
+        value: stats ? commafy(stats?.tests) : '-'
+      },
+      secondary: {
+        label: 'Per 1 Million',
+        value: stats ? commafy(stats?.testsPerOneMillion) : '-'
+      }
+    },
+    {
+      primary: {
+        label: 'Active Cases',
+        value: stats ? commafy(stats?.active) : '-'
+      }
+    },
+    {
+      primary: {
+        label: 'Critical Cases',
+        value: stats ? commafy(stats?.critical) : '-'
+      }
+    },
+    {
+      primary: {
+        label: 'Recovered Cases',
+        value: stats ? commafy(stats?.recovered) : '-'
+      }
+    }
+  ]
+
 
   async function mapEffect({ leafletElement: map } = {}) {
     let response;
@@ -65,7 +122,11 @@ const IndexPage = () => {
           updated,
           cases,
           deaths,
-          recovered
+          recovered,
+          continent,
+          todayCases,
+          todayDeaths,
+     
         } = properties
 
         casesString = `${cases}`;
@@ -82,6 +143,12 @@ const IndexPage = () => {
           <span class="icon-marker">
             <span class="icon-marker-tooltip">
               <h2>${country}</h2>
+              <h2>${continent}</h2>
+              <ul>
+              <li><strong>Today's Cases:</strong> ${todayCases}</li>
+              <li><strong>Today's Deaths:</strong> ${todayDeaths}</li>
+              </ul>
+              -------------------------
               <ul>
                 <li><strong>Confirmed:</strong> ${cases}</li>
                 <li><strong>Deaths:</strong> ${deaths}</li>
@@ -121,7 +188,33 @@ const IndexPage = () => {
 
       <Map {...mapSettings} />
 
-      
+      <div className="tracker-stats">
+          <ul>
+            { dashboardStats.map(({ primary = {}, secondary = {} }, i) => {
+              return (
+                <li key={`Stat-${i}`} className="tracker-stat">
+                  { primary.value && (
+                    <p className="tracker-stat-primary">
+                      { primary.value }
+                      <strong>{ primary.label }</strong>
+                    </p>
+                  )}
+                  { secondary.value && (
+                    <p className="tracker-stat-secondary">
+                      { secondary.value }
+                      <strong>{ secondary.label }</strong>
+                    </p>
+                  )}
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+        <div className="tracker-last-updated">
+          <p>
+            Last Updated: { stats ? friendlyDate(stats?.updated) : '-' }
+          </p>
+        </div>
     </Layout>
   );
 };
