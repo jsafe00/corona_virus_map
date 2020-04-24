@@ -7,13 +7,13 @@ const Header = () => {
   return (
     <header>
       <Container type="content">
-        <p>COVID Tracker </p>
+        <p></p>
         <ul>
           <li>
-            <Link to="/">COVID Tracker</Link>
+            <Link to="/"></Link>
           </li>
           <li>
-            <Link to="/page-2/">TBD</Link>
+            <Link to="/">TBD</Link>
           </li>
         </ul>
       </Container>
