@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'gatsby';
+import github from 'assets/images/github.gif';
 
 import Container from 'components/Container';
 
@@ -13,7 +14,8 @@ const Header = () => {
             <Link to="/"></Link>
           </li>
           <li>
-            <Link to="/">TBD</Link>
+            <a target='_blank' href={'https://github.com/jsafe00/corona_virus_map'}>
+            <img src={github} /></a>
           </li>
         </ul>
       </Container>
