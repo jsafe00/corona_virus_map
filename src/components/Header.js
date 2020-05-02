@@ -8,11 +8,12 @@ const Header = () => {
   return (
     <header>
       <Container type="content">
-        <p></p>
+        <ul>         
+        <li><Link to="/">WORLD</Link></li>
+        <li><Link to="/usa-page">USA</Link></li>
+        </ul>
         <ul>
-          <li>
-            <Link to="/"></Link>
-          </li>
+         
           <li>
             <a target='_blank' href={'https://github.com/jsafe00/corona_virus_map'}>
             <img src={github} /></a>
