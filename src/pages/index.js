@@ -126,8 +126,13 @@ const IndexPage = () => {
           continent,
           todayCases,
           todayDeaths,
+          active,
+          critical,
+          tests,
+          countryInfo
      
         } = properties
+        console.log(countryInfo.flag);
 
         casesString = `${cases}`;
 
@@ -142,7 +147,7 @@ const IndexPage = () => {
         const html = `
           <span class="icon-marker">
             <span class="icon-marker-tooltip">
-              <h2>${country}</h2>
+              <h2><img src = '${countryInfo.flag}' height='20px' width='30px'> ${country}</h2>
               <h2>${continent}</h2>
               <ul>
               <li><strong>Today's Cases:</strong> ${todayCases}</li>
@@ -153,6 +158,10 @@ const IndexPage = () => {
                 <li><strong>Confirmed:</strong> ${cases}</li>
                 <li><strong>Deaths:</strong> ${deaths}</li>
                 <li><strong>Recovered:</strong> ${recovered}</li>
+                <li><strong>Active:</strong> ${active}</li>
+                <li><strong>Critical:</strong> ${critical}</li>
+                <li><strong>Tests:</strong> ${tests}</li>
+                <br/>
                 <li><strong>Last Update:</strong> ${updatedFormatted}</li>
               </ul>
             </span>
