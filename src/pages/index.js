@@ -150,17 +150,17 @@ const IndexPage = () => {
               <h2><img src = '${countryInfo.flag}' height='20px' width='30px'> ${country}</h2>
               <h2>${continent}</h2>
               <ul>
-              <li><strong>Today's Cases:</strong> ${todayCases}</li>
-              <li><strong>Today's Deaths:</strong> ${todayDeaths}</li>
+              <li><strong>Today's Cases:</strong> ${commafy(todayCases)}</li>
+              <li><strong>Today's Deaths:</strong> ${commafy(todayDeaths)}</li>
               </ul>
               -------------------------
               <ul>
-                <li><strong>Confirmed:</strong> ${cases}</li>
-                <li><strong>Deaths:</strong> ${deaths}</li>
-                <li><strong>Recovered:</strong> ${recovered}</li>
-                <li><strong>Active:</strong> ${active}</li>
-                <li><strong>Critical:</strong> ${critical}</li>
-                <li><strong>Tests:</strong> ${tests}</li>
+                <li><strong>Confirmed:</strong> ${commafy(cases)}</li>
+                <li><strong>Deaths:</strong> ${commafy(deaths)}</li>
+                <li><strong>Recovered:</strong> ${commafy(recovered)}</li>
+                <li><strong>Active:</strong> ${commafy(active)}</li>
+                <li><strong>Critical:</strong> ${commafy(critical)}</li>
+                <li><strong>Tests:</strong> ${commafy(tests)}</li>
                 <br/>
                 <li><strong>Last Update:</strong> ${updatedFormatted}</li>
               </ul>
