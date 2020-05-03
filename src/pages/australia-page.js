@@ -9,13 +9,13 @@ import Map from 'components/Map';
 import { commafy } from 'lib/util';
 
 const LOCATION = {
-  lat: 30.929614,
-  lng: -100.835489
+  lat: -25.094160, 
+  lng: 130.884801
 };
 const CENTER = [LOCATION.lat, LOCATION.lng];
 const DEFAULT_ZOOM = 4;
 
-const USAPage = () => {
+const AustraliaPage = () => {
 
   async function mapEffect({ leafletElement: map } = {}) {
     let response;
@@ -74,15 +74,16 @@ const USAPage = () => {
           casesString = `${casesString.slice(0, -3)}k+`
         }
 
-        if(country === 'US'){
+        if(country === 'Australia'){
         const html = `
           <span class="icon-marker">
             <span class="icon-marker-tooltip">
-              <h2>State: ${province}</h2>
+              <h2>Province: ${province}</h2>
               -------------------------
               <ul>
                 <li><strong>Confirmed:</strong>${commafy(stats.confirmed)}</li>
                 <li><strong>Deaths:</strong> ${commafy(stats.deaths)}</li>
+                <li><strong>Deaths:</strong> ${commafy(stats.recovered)}</li>
                 <br/>
                 <li><strong>Last Update:</strong> ${updatedAt}</li>
               </ul>
@@ -123,4 +124,4 @@ const USAPage = () => {
   );
 };
 
-export default USAPage;
+export default AustraliaPage;

@@ -116,6 +116,7 @@ const IndexPage = () => {
         const { properties = {} } = feature;
         let updatedFormatted;
         let casesString;
+        let province;
 
         const {
           country,
@@ -129,10 +130,9 @@ const IndexPage = () => {
           active,
           critical,
           tests,
-          countryInfo
+          countryInfo,
      
         } = properties
-        console.log(countryInfo.flag);
 
         casesString = `${cases}`;
 
@@ -144,10 +144,32 @@ const IndexPage = () => {
           updatedFormatted = new Date(updated).toLocaleString();
         }
 
+        if(country === 'USA'){
+          province = `<h2><a href="/usa-page">By state</a><h2>`
+        }else if (country === "China"){
+          province = `<h2><a href="/china-page">By province</a><h2>`
+        }else if (country === "Australia"){
+          province = `<h2><a href="/australia-page">By province</a><h2>` 
+        }else if (country === "United Kingdom"){
+          province = `<h2><a href="/uk-page">By province</a><h2>`   
+        }else if (country === "Canada"){
+          province = `<h2><a href="/canada-page">By province</a><h2>` 
+        }else if (country === "France"){
+          province = `<h2><a href="/france-page">By province</a><h2>`   
+        }else if (country === "Denmark"){
+          province = `<h2><a href="/denmark-page">By province</a><h2>` 
+        }else if (country === "Netherlands"){
+          province = `<h2><a href="/netherlands-page">By province</a><h2>`   
+        }else{
+          province = ``
+        }       
+        
         const html = `
           <span class="icon-marker">
             <span class="icon-marker-tooltip">
+             
               <h2><img src = '${countryInfo.flag}' height='20px' width='30px'> ${country}</h2>
+              <h2>${province}</h2>
               <h2>${continent}</h2>
               <ul>
               <li><strong>Today's Cases:</strong> ${commafy(todayCases)}</li>
@@ -194,7 +216,7 @@ const IndexPage = () => {
       <Helmet>
         <title>Covid-19</title>
       </Helmet>
-
+      
       <Map {...mapSettings} />
 
       <div className="tracker-stats">

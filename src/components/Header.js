@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'gatsby';
 import github from 'assets/images/github.gif';
+import globe from 'assets/images/globe.png';
 
 import Container from 'components/Container';
 
@@ -10,7 +11,6 @@ const Header = () => {
       <Container type="content">
         <ul>         
         <li><Link to="/">WORLD</Link></li>
-        <li><Link to="/usa-page">USA</Link></li>
         </ul>
         <ul>
          
