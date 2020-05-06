@@ -71,7 +71,7 @@ const PhPageCases = () => {
         } = properties
 
         const html = `
-          <span class="icon-marker">
+          <span class="icon2-marker">
             <span class="icon-marker-tooltip">
               <h2>Region: ${region_res}</h2>
               <h2>Location: ${location}</h2>
@@ -92,7 +92,7 @@ const PhPageCases = () => {
 
         return L.marker( latlng, {
           icon: L.divIcon({
-            className: 'icon2',
+            className: 'icon',
             html
           }),
           riseOnHover: true

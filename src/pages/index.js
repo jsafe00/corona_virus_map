@@ -117,6 +117,7 @@ const IndexPage = () => {
         let updatedFormatted;
         let casesString;
         let province;
+        let dohdata;
 
         const {
           country,
@@ -159,9 +160,12 @@ const IndexPage = () => {
         }else if (country === "Denmark"){
           province = `<h2><a href="/denmark-page">By province</a><h2>` 
         }else if (country === "Netherlands"){
-          province = `<h2><a href="/netherlands-page">By province</a><h2>`   
+          province = `<h2><a href="/netherlands-page">By province</a><h2>` 
+        }else if (country === "Philippines"){
+          dohdata = `<li><a href="/ph-page">PH DOH DATA</a></li>`   
         }else{
           province = ``
+          dohdata = ``
         }       
         
         const html = `
@@ -185,6 +189,7 @@ const IndexPage = () => {
                 <li><strong>Tests:</strong> ${commafy(tests)}</li>
                 <br/>
                 <li><strong>Last Update:</strong> ${updatedFormatted}</li>
+                <li>${dohdata}</li>
               </ul>
             </span>
             ${ casesString }

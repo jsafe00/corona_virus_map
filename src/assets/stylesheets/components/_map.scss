@@ -67,14 +67,14 @@
   justify-content: center;
   align-items: center;
   color: white;
-  width: 3.6em;
-  height: 3.6em;
+  width: 0.6em;
+  height: 0.6em;
   font-size: .7em;
   font-weight: bold;
-  background-color: $red-800;
+  background-color: #c62828;
   border-radius: 100%;
-  box-shadow: 0 2px 5px rgba(black, .9);
-  opacity: 0.2;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.9);
+  opacity: 0.8;
 
   &:hover {
 
