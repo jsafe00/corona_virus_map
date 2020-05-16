@@ -147,22 +147,31 @@ const IndexPage = () => {
 
         if(country === 'USA'){
           province = `<h2><a href="/usa-page">By state</a><h2>`
+          dohdata = ``
         }else if (country === "China"){
           province = `<h2><a href="/china-page">By province</a><h2>`
+          dohdata = ``
         }else if (country === "Australia"){
           province = `<h2><a href="/australia-page">By province</a><h2>` 
+          dohdata = ``
         }else if (country === "United Kingdom"){
-          province = `<h2><a href="/uk-page">By province</a><h2>`   
+          province = `<h2><a href="/uk-page">By province</a><h2>`  
+          dohdata = `` 
         }else if (country === "Canada"){
           province = `<h2><a href="/canada-page">By province</a><h2>` 
+          dohdata = ``
         }else if (country === "France"){
-          province = `<h2><a href="/france-page">By province</a><h2>`   
+          province = `<h2><a href="/france-page">By province</a><h2>` 
+          dohdata = ``  
         }else if (country === "Denmark"){
-          province = `<h2><a href="/denmark-page">By province</a><h2>` 
+          province = `<h2><a href="/denmark-page">By province</a><h2>`
+          dohdata = `` 
         }else if (country === "Netherlands"){
-          province = `<h2><a href="/netherlands-page">By province</a><h2>` 
+          province = `<h2><a href="/netherlands-page">By province</a><h2>`
+          dohdata = `` 
         }else if (country === "Philippines"){
           dohdata = `<li><a href="/ph-page">PH DOH DATA</a></li>`   
+          province = ``
         }else{
           province = ``
           dohdata = ``
